@@ -1,0 +1,26 @@
+Source: vplane-config-npf-alg-scripts
+Section: contrib/net
+Priority: optional
+Maintainer: Vyatta Package Maintainers <DL-vyatta-help@att.com>
+Build-Depends: debhelper (>= 9), dh-yang,
+Standards-Version: 3.9.6
+
+Package: vyatta-system-alg-v1-yang
+Architecture: all
+Depends: ${misc:Depends}, ${yang:Depends}, ${perl:Depends},
+ vplane-config, libvyatta-cfg1, libmodule-load-conditional-perl
+Description: vyatta alg yang and scripts
+ YANG module and scripts for Vyatta ALG configuration and operation
+Breaks: vyatta-security-firewall-v1.yang (<< 1.11.4)
+
+Package: vyatta-system-alg-routing-instance-v1-yang
+Architecture: all
+Depends: ${misc:Depends}, ${yang:Depends}, vyatta-system-alg-v1-yang
+Description: vyatta alg yang and scripts for routing instances
+ YANG module for Vyatta ALG configuration and operation
+
+Package: vyatta-op-system-alg-v1-yang
+Architecture: all
+Depends: ${misc:Depends}, ${yang:Depends}, vplane-config-npf,
+Description: operational CLI yang for vyatta-system-alg
+ The Vyatta operation YANG for ALG commands
